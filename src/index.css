@@ -1,0 +1,21 @@
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root{
+  /* colors */
+  --dark: #191b4a;
+  --muted: #73749c;
+  --accent: #ffd66c;
+  --accent--muted: #efb153;
+  --neutral1: #ffffff;
+  --neutral2: #f8f8f8;
+  --neutral3: #eeeeee;
+  --neutral4: #c9c9c9;
+
+
+}
