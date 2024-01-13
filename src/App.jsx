@@ -1,5 +1,19 @@
 import star from "./assets/star.svg";
 import search from "./assets/search.svg";
+import reviews from "./data/reviews.json";
+
+const total = reviews.length;
+const stars = [5, 4, 3, 2, 1];
+
+const numbersOfMatchingReviews = (rating) =>
+  reviews.reduce((acc, review) => {
+    if (review.rating === rating) {
+      return acc + 1;
+    }
+    return acc;
+  }, 0);
+
+const totalStars = reviews.reduce((acc, review) => acc + review.rating, 0);
 
 function App() {
   return (
@@ -9,7 +23,9 @@ function App() {
         <div className="summary">
           <div>
             <img src={star} alt="star icon" />
-            <span>4.8</span>
+            <span>{(totalStars / total).toLocaleString(undefined, {
+                maximumFractionDigits: 1,
+              })}</span>
           </div>
           <p>Average customer rating</p>
         </div>
@@ -30,7 +46,20 @@ function App() {
         <p>
           <strong>Reviews</strong>
         </p>
-        <div className="reviews-container">106</div>
+        <div className="reviews-container">
+          {stars.map((s) => (
+            <div key={s.id} className="review">
+              <div className="rating">
+                <strong>{s}</strong>
+                <img src={star} alt="star" width={25} height={25} />
+              </div>
+              <progress max={total} value={numbersOfMatchingReviews(s)}>
+                {`${(numbersOfMatchingReviews(s) / total) * 100}%`}
+              </progress>
+              <p>{numbersOfMatchingReviews(s)}</p>
+            </div>
+          ))}
+        </div>
       </div>
       <button type="button" className="btn">
         Write a review

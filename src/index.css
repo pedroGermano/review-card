@@ -156,6 +156,53 @@ header h2 {
   gap: 16px;
 }
 
+.reviews-container{
+  display: grid;
+  gap: 18px;
+}
+
+.review{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rating{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rating strong{
+  padding-top: 3px;
+  margin-bottom: -3px;
+  min-width: 12px;
+  text-align: center;
+}
+
+progress {
+  appearance: none;
+  border: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 13px;
+  overflow: hidden;
+  position: relative;
+}
+
+progress[value]::-webkit-progress-bar{
+  background: hsl(var(--neutral3));
+  border: 1px solid hsl(var(--neutral5));
+}
+
+progress[value]::-webkit-progress-value{
+  position: absolute;
+  inset: 0;
+  background: hsl(var(--accent));
+  border-radius: 13px;
+  border: 1px solid hsl(var(--accent--muted));
+}
+
 .btn {
   padding: 16px 24px;
   font: inherit;
@@ -173,5 +220,5 @@ header h2 {
 }
 
 .btn:where(:hover, :focus-visible) {
-  box-shadow: 0 0 0 2px hsl(var(--neutral1)), 0 0 0 5px hsl(var(--muted));
+  box-shadow: 0 0 0 4px hsl(var(--neutral1)), 0 0 0 8px hsl(var(--dark));
 }
